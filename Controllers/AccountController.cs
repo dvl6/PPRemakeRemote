@@ -464,8 +464,12 @@ namespace IdentitySample.Controllers
         {
             ApplicationDbContext db = new ApplicationDbContext();
             ApplicationUser user = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
-            MyDbContext db1 = new MyDbContext();
-            var table = db1.Roles.ToList();
+            ViewBag.country = from p in CultureInfo.GetCultures(CultureTypes.AllCultures & ~CultureTypes.NeutralCultures).OrderBy(c => c.Name)
+                              select new SelectListItem
+                              {
+                                  Text = p.EnglishName,
+                                  Value = p.DisplayName
+                              };
             return View(user);
         }
 

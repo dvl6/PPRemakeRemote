@@ -29,6 +29,12 @@
                     <td>@Html.TextAreaFor(model => model.BandMembers)</td>
                 </tr>
                 <tr>
+
+                    <td> @Html.DropDownListFor(model => model.Country, (IEnumerable<SelectListItem>)ViewBag.country)</td>
+                   
+                </tr>
+                <tr>
+
                     <td> @Html.LabelFor(model => model.Country)</td>
                     <td>@Html.TextBoxFor(model => model.Country)</td>
                 </tr>
