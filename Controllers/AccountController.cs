@@ -465,7 +465,7 @@ namespace IdentitySample.Controllers
             ApplicationDbContext db = new ApplicationDbContext();
             ApplicationUser user = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
             MyDbContext db1 = new MyDbContext();
-            
+            var table = db1.Roles.ToList();
             return View(user);
         }
 
