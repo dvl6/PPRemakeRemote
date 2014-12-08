@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Log in";
+
+}
+@if (Request.IsAuthenticated)
+{
+    <ul class="login-profile-list">
+        <li>@Html.ActionLink("My Profile", "index", "account")</li>
+        <li>@Html.ActionLink("My Gallery", "Index")</li>
+        <li>@Html.ActionLink("My Messages", "Index")</li>
+        <li>@Html.ActionLink("My Shows", "Index")</li>
+        <li>@Html.ActionLink("My Music", "Index")</li>
+        <li>@Html.ActionLink("My News", "Index")</li>
+        <li>@Html.ActionLink("My Relationships", "Index")</li>
+
+    </ul>
+}
+else
+{
+
+    <section id="loginForm">
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "topLogin" }))
+        {
+
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <ul class="user-login">
+                <li>
+                    <input type="text" name="username" />
+                    @*@Html.TextBoxFor(m => m.UserName)
+                        @Html.ValidationMessageFor(m => m.UserName)*@
+                </li>
+                <li>
+                    <input type="password" name="password" />
+                    @*@Html.PasswordFor(m => m.Password)
+                        @Html.ValidationMessageFor(m => m.Password)*@
+                </li>
+                <li>
+                    <div class="login-button" onclick="javascript:document.getElementById('topLogin').submit()"></div>
+                </li>
+
+            </ul>
+
+
+
+        }
+    </section>
+}
+@*@if (Request.IsAuthenticated)
+    {
+        <text>
+            Hello, @Html.ActionLink(User.Identity.Name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                @Html.AntiForgeryToken()
+                <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+            }
+        </text>
+    }
+    else
+    {
+        <ul class="login-links">
+            <li>@Html.ActionLink("New User?", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("Forgot Password?", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>
+    }
+
+    @{
+        ViewBag.Title = "_MiddlePartial";
+    }*@
+
+
+
+

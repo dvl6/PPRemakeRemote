@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Performplanet HomePage</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <div class="content-wrapper header">
+            <div class="float-left">
+                <img src="@Url.Content("~/Content/Images/login_bg1.png")" alt="login" />
+            </div>
+            <div class="login-middle">
+                @Html.Partial("_MiddlePartial")
+            </div>
+            <div class="login-links">
+                @Html.Partial("_LoginPartial")
+            </div>
+
+        </div>
+
+        <nav>
+            <ul id="menu">
+                <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = ViewBag.Title == "Home" ? "active" : "" })</li>
+                <li>@Html.ActionLink("Read!", "Read", "Home", null, new { @class = ViewBag.Title == "Read" ? "active" : "" })</li>
+                <li>@Html.ActionLink("Calendar", "Read", "Home", null, new { @class = ViewBag.Title == "Calendar" ? "active" : "" })</li>
+                <li>@Html.ActionLink("Music", "Read", "Home", null, new { @class = ViewBag.Title == "Music" ? "active" : "" })</li>
+                <li>@Html.ActionLink("Charts", "Read", "Home", null, new { @class = ViewBag.Title == "Charts" ? "active" : "" })</li>
+                <li>@Html.ActionLink("Contact PP", "Contact", "Home", null, new { @class = ViewBag.Title == "Contact" ? "active" : "" })</li>
+            </ul>
+        </nav>
+        <div class="clear">
+        </div>
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @{if (ViewBag.Title != "Home")
+            {
+                <div class="side-menu">@Html.Partial("_SideMenu");</div>
+                <div class="inner-wrapper">@RenderBody();</div>
+
+
+            }
+            else
+            {
+                RenderBody();
+            }
+            }
+        </section>
+    </div>
+    <footer>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
