@@ -22,6 +22,7 @@ namespace IdentitySample.Models
         //public string UserName { get; set; }
         [Display(Name = "Band/Artist Name")]
         [Required]
+        [StringLength(50, MinimumLength=3)]
         public string ProfileName { get; set; }
         [Display(Name = "BandMembers")]
         [DataType(DataType.MultilineText)]
@@ -71,7 +72,7 @@ namespace IdentitySample.Models
         {
             // Set the database intializer which is run once during application start
             // This seeds the database with admin user credentials and admin role
-            Database.SetInitializer<ApplicationDbContext>(new ApplicationDbInitializer());
+           // Database.SetInitializer<ApplicationDbContext>(new ApplicationDbInitializer());
         }
 
         public static ApplicationDbContext Create()

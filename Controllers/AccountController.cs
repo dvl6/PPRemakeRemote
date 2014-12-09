@@ -469,7 +469,8 @@ namespace IdentitySample.Controllers
                               select new SelectListItem
                               {
                                   Text = p.EnglishName,
-                                  Value = p.DisplayName
+                                  Value = p.DisplayName,
+                                  Selected = p.DisplayName == user.Country
                               };
             return View(user);
         }
