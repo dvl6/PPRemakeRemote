@@ -3,12 +3,12 @@
 @{if (User.IsInRole("Viewer"))
   {
       
-      <h2>Index =Viewer</h2>
+      <h1>Index =Viewer</h1>
   }
       
   else{
       @*@model WebApplicationNew.Models.RolesModel.BandViewModel*@
-      <h2>Index =Band</h2>
+      <h1>My Profile Info</h1>
     <fieldset>
     
         @using (Html.BeginForm("Index", "account", FormMethod.Post))
@@ -22,22 +22,22 @@
             <table class="register-form">
                 <tr>
                     <td> @Html.LabelFor(model => model.ProfileName)</td>
-                    <td>@Html.TextBoxFor(model => model.ProfileName)</td>
+                    <td>@Html.DisplayName(Model.ProfileName)</td>
                 </tr>
                 <tr>
                     <td> @Html.LabelFor(model => model.BandMembers)</td>
                     <td>@Html.TextAreaFor(model => model.BandMembers)</td>
                 </tr>
                 <tr>
-
+                    <td> @Html.LabelFor(model => model.Country)</td>
                     <td> @Html.DropDownListFor(model => model.Country, (IEnumerable<SelectListItem>)ViewBag.country)</td>
                    
                 </tr>
-                <tr>
+                @*<tr>
 
                     <td> @Html.LabelFor(model => model.Country)</td>
                     <td>@Html.TextBoxFor(model => model.Country)</td>
-                </tr>
+                </tr>*@
                 <tr>
                     <td> @Html.LabelFor(model => model.Webpage)</td>
                     <td>@Html.TextBoxFor(model => model.Webpage)</td>

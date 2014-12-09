@@ -21,6 +21,7 @@ namespace IdentitySample.Models
         //[Display(Name = "Username")]
         //public string UserName { get; set; }
         [Display(Name = "Band/Artist Name")]
+        [Required]
         public string ProfileName { get; set; }
         [Display(Name = "BandMembers")]
         [DataType(DataType.MultilineText)]

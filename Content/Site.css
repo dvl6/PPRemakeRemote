@@ -1,8 +1,8 @@
 ﻿html {
-    background-color:#eceff2;
+    background-color: #eceff2;
     margin: 0;
     padding: 0;
-    min-height:100%;
+    min-height: 100%;
 }
 
 body {
@@ -11,7 +11,7 @@ body {
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
-    padding:10px 0 0 0;
+    padding: 10px 0 0 0;
 }
 
 a {
@@ -56,18 +56,19 @@ mark {
     width: 67%;
 }
 
-.login-links{
-    height:59px;
-    line-height:15px;
-    width:160px;
+.login-links {
+    height: 59px;
+    line-height: 15px;
+    width: 160px;
 }
-.login-links ul{
-    padding: 0 5px;
-    list-style: none;
-    color: #999999;
-    text-align: center;
-    margin-top:15px;
-}
+
+    .login-links ul {
+        padding: 0 5px;
+        list-style: none;
+        color: #999999;
+        text-align: center;
+        margin-top: 15px;
+    }
 
 .float-right {
     float: right;
@@ -93,27 +94,27 @@ mark {
     background: #fff;
     padding-left: 3px;*/
     height: 18px;
-width: 260px;
-border: #d8dbc4 solid 1px;
-padding: 0;
-margin: 5px 0 0;
-float: left;
-font-size: 12px;
-color: #333;
+    width: 260px;
+    border: #d8dbc4 solid 1px;
+    padding: 0;
+    margin: 5px 0 0;
+    float: left;
+    font-size: 12px;
+    color: #333;
 }
 
-.login-button{
+.login-button {
     background: url("../Content/Images/login_btn_submit.png") no-repeat;
-    width:12px;
-    height:23px;
-    float:left;
-    cursor:pointer;
-    margin:2px 0 0 5px;
+    width: 12px;
+    height: 23px;
+    float: left;
+    cursor: pointer;
+    margin: 2px 0 0 5px;
 }
+
 .login-profile-list {
-    
     margin: 22px auto;
-    padding:0;
+    padding: 0;
 }
 
     .login-profile-list li {
@@ -123,9 +124,10 @@ color: #333;
         font-size: 10px;
         text-align: center;
     }
-    .login-profile-list li a{
-        text-wrap:none;
-    }
+
+        .login-profile-list li a {
+            text-wrap: none;
+        }
 
 .clear-fix:after {
     content: ".";
@@ -144,7 +146,7 @@ color: #333;
     height: 59px;
     background-color: #fff;
     padding: 2px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .clear {
@@ -164,10 +166,10 @@ color: #333;
 
 .main-content {
     /*background: #fff;*/
-    margin-top:25px;
+    margin-top: 25px;
 }
 
-.table-login{
+.table-login {
     width: 362px;
     padding: 0 3px 0 3px;
     margin: 0;
@@ -178,98 +180,134 @@ color: #333;
     line-height: 22px;
 }
 
-.login-middle .validation-summary-errors{
-    display:none;
+.login-middle .validation-summary-errors {
+    display: none;
 }
-#menu{
-    list-style:none;
-    padding:0;
-    margin:10px auto;
-    width:90%;
+
+#menu {
+    list-style: none;
+    padding: 0;
+    margin: 10px auto;
+    width: 90%;
 }
-#menu li{
-    float:left;
-    margin-right:0.8%;
-}
-#menu li:last-child{
-    margin-right:0;
-    float:right;
-}
-#menu li a{
-    padding: 2px 76px 3px 3px;
-margin: 0;
-font-size: 15px;
-font-family: "Arial Black", Arial, sans-serif;
-letter-spacing: -2px;
-line-height: 15px;
-font-weight: bold;
-text-transform: uppercase;
-text-decoration: none;
-text-align: left;
-float: left;
-background: url("../Content/Images/top_menu_bg.png") repeat-x;
-color:#fff;
-}
-#menu li a.active, #menu li a:hover{
-    background: url("../Content/Images/top_menu_bg_hover.png") repeat-x;
-    color:#000;
-}
+
+    #menu li {
+        float: left;
+        margin-right: 0.8%;
+    }
+
+        #menu li:last-child {
+            margin-right: 0;
+            float: right;
+        }
+
+        #menu li a {
+            padding: 2px 76px 3px 3px;
+            margin: 0;
+            font-size: 15px;
+            font-family: "Arial Black", Arial, sans-serif;
+            letter-spacing: -2px;
+            line-height: 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: left;
+            float: left;
+            background: url("../Content/Images/top_menu_bg.png") repeat-x;
+            color: #fff;
+        }
+
+            #menu li a.active, #menu li a:hover {
+                background: url("../Content/Images/top_menu_bg_hover.png") repeat-x;
+                color: #000;
+            }
 /*Side menu styles*/
-.side-menu{
-    width:20%;
-    float:left;
+.side-menu {
+    width: 20%;
+    float: left;
 }
 
 /*Inner content*/
-.inner-wrapper{
-    width:77%;
-    float:right;
-    padding:20px;
-    background-color:#fff;
+.inner-wrapper {
+    width: 77%;
+    float: right;
+    padding: 20px 40px;
+    background-color: #fff;
 }
-.corner-top{
-    padding: 4px 4px 3px 4px !important;
-float: left;
-color: #FFF;
-font-size: 10px;
-line-height: 10px;
-font-family: Arial, Helvetica, sans-serif;
-text-transform: uppercase;
-background-color: #00a8e3;
-}
-.register-form {
-    display:block;
-}
-.register-form input,.register-form textarea{
-    width: 362px;
-padding: 0 3px 0 3px;
-margin: 0;
-float: left;
-border: #daddc7 solid 1px;
-height: 22px;
-font-size: 12px;
-line-height: 22px;
-}
-.register-form textarea{
 
-    width:262px;
-    height:66px;
+.corner-top {
+    padding: 4px 4px 3px 4px !important;
+    position: absolute;
+    color: #FFF;
+    font-size: 10px;
+    line-height: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    background-color: #00a8e3;
+    top: 0;
+    left: 0;
+    margin-top: -1px;
 }
-fieldset{
-    background-color:#F5F5F5;
-    border:0;
-    border-top:1px solid grey;
-    padding:0;
+
+.register-form {
+    display: block;
 }
-h1.register{
+.register-form td{
+   padding:0 5px;
+   font-size:14px;
+}
+    .register-form input, .register-form textarea {
+        width: 362px;
+        padding: 0 3px 0 3px;
+        margin: 0;
+        float: left;
+        border: #daddc7 solid 1px;
+        height: 22px;
+        font-size: 12px;
+        line-height: 22px;
+    }
+
+    .register-form textarea {
+        width: 262px;
+        height: 66px;
+    }
+
+fieldset {
+    background-color: #F5F5F5;
+    border: 0;
+    border-top: 1px solid grey;
+    padding: 0;
+    position:relative;
+    padding-top:10px;
+}
+
+h1.register {
+    font-size: 36px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    color: #000;
+    letter-spacing: -4px;
+    text-align: left;
+    padding: 40px 40px 20px 40px;
+    margin: 0;
+    width: 670px;
+    line-height: 40px;
+    float: left;
+}
+
+#Country{
+    height:22px;
+    font-size:12px;
+}
+h1{
     font-size: 36px;
 font-family: "Arial Black", Gadget, sans-serif;
 color: #000;
 letter-spacing: -4px;
 text-align: left;
-padding: 40px 40px 20px 40px;
+padding: 40px 40px 20px 0px;
 margin: 0;
 width: 670px;
 line-height: 40px;
 float: left;
+}
 }
