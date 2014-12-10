@@ -16,6 +16,7 @@ namespace IdentitySample.Models
     {
         public string Id { get; set; }
         [Display(Name="Username")]
+        [Required(AllowEmptyStrings = false)]
         public string Username { get; set; }
         [Required(AllowEmptyStrings = false)]
         [Display(Name = "Email")]

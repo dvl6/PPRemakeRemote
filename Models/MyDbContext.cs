@@ -6,19 +6,23 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace WebApplicationNew.Models
+namespace IdentitySample.Models
 {
-    public class MyDbContext : IdentityDbContext<ApplicationUser>
+    public class MyDbContext : DbContext
     {
         public MyDbContext()
             : base("DefaultConnection")
         {
-            //DbSet<WebApplicationNew.Models.RolesModel.Countries> Countries;
-            DbSet<IdentitySample.Models.CountryViewModel> Counries;
+           
+            
         }
+        public DbSet<ApplicationUser> Users { get; set; }
+        public DbSet<VideoViewModel> Musics { get; set; }
+        public DbSet<VideoViewModel> Videos { get; set; }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
 
-
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder) { }
+        }
 
         //public System.Data.Entity.DbSet<WebApplicationNew.Models.ToDo> 
         //                     ToDoes { get; set; }

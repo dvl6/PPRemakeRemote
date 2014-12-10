@@ -310,4 +310,24 @@ width: 670px;
 line-height: 40px;
 float: left;
 }
+.edit-button{
+    background:url("../Content/Images/btn_bg_04.png") no-repeat;
+    background-color:#aaa;
+    background-position:left;
+    font-size: 11px;
+font-weight: bold;
+line-height: 27px;
+height: 27px;
+padding: 0 10px 0 40px;
+margin: 0;
+float: left;
+color: #fff;
+text-decoration:none;
+text-transform:uppercase;
+}
+.edit-button:hover {
+    background-color:#000;
+    text-decoration:none;
+    color:#fff;
+    cursor:pointer;
 }

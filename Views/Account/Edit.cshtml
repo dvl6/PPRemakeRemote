@@ -1,0 +1,74 @@
+﻿@model IdentitySample.Models.ApplicationUser
+@{ViewBag.title = "User Profile";}
+@{if (User.IsInRole("Viewer"))
+{
+
+    <h1>Index =Viewer</h1>
+}
+
+else
+{
+   
+    <h1>My Profile Edit</h1>
+    <fieldset>
+
+        @using (Html.BeginForm("Edit", "Account", FormMethod.Post,new{@id="user-edit-form"}))
+            {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+
+
+        @*<legend>Registration Form</legend>*@
+        <div class="corner-top">Register form</div>
+        <table class="register-form">
+            <tr>
+                <td> </td>
+                <td>@Html.HiddenFor(model => model.Id)</td>
+            </tr>
+            <tr>
+                <td> @Html.LabelFor(model => model.ProfileName)</td>
+                <td>@Html.TextBoxFor(model => model.ProfileName)</td>
+            </tr>
+
+            <tr>
+                <td> @Html.LabelFor(model => model.Country)</td>
+                <td> @Html.DropDownListFor(m => m.Country, (IEnumerable<SelectListItem>)ViewBag.countries)</td>
+
+            </tr>
+            <tr>
+                <td> @Html.LabelFor(model => model.Styles)</td>
+                <td>@Html.TextBoxFor(model => model.Styles)</td>
+            </tr>
+            <tr>
+
+                <td> @Html.LabelFor(model => model.Description)</td>
+                <td>@Html.TextAreaFor(model => model.Description)</td>
+            </tr>
+            <tr>
+                <td> @Html.LabelFor(model => model.Webpage)</td>
+                <td>@Html.TextBoxFor(model => model.Webpage)</td>
+            </tr>
+            <tr>
+                    <td> @Html.LabelFor(model => model.OldPassword)</td>
+                    <td>@Html.PasswordFor(model => model.OldPassword)</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.ConfirmPassword)
+                    </td>
+                    <td>@Html.PasswordFor(model => model.ConfirmPassword)</td>
+                </tr>
+        </table>
+        <div class="edit-button" onclick="javascrpt:document.getElementById('user-edit-form').submit()">Save</div>
+
+        }
+
+
+
+    </fieldset>
+}
+
+}
+
+
+

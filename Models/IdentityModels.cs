@@ -79,5 +79,7 @@ namespace IdentitySample.Models
         {
             return new ApplicationDbContext();
         }
+
+
     }
 }

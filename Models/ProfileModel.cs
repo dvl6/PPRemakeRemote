@@ -4,10 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace WebApplicationNew.Models
+namespace IdentitySample.Models
 {
-    public class RolesModel
-    {
+    
         public class ViewerViewModel
         {
             [Display(Name = "Name")]
@@ -39,10 +38,28 @@ namespace WebApplicationNew.Models
             [Display(Name = "IP Adress")]
             public string IPaddress { get; set; }
         }
+        public class MusicViewModel
+        {
+            public int MusicId { get; set; }
+            public string Genres { get; set; }
+            public string Title { get; set; }
+            
+            public virtual int UserId { get; set; }
+            public virtual ApplicationUser User { get; set; }
+        }
+        public class VideoViewModel
+        {
+            public int VideoId { get; set; }
+            public string Genres { get; set; }
+            public string Title { get; set; }
+            public string Description { get; set; }
+
+            public virtual int UserId { get; set; }
+            public virtual ApplicationUser User { get; set; }
+        }
         //public class Countries
         //{
         //    public int Id { get; set; }
         //    public string Country { get; set; }
         //}
-    }
-}
+ }

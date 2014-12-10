@@ -1,4 +1,4 @@
-namespace WebApplicationNew.Migrations
+namespace IdentitySample.Migrations
 {
     using System;
     using System.Data.Entity;

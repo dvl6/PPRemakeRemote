@@ -7,7 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace WebApplicationNew.Models
+namespace IdentitySample.Models
 {
     public class MyDbInitializer : DropCreateDatabaseIfModelChanges<MyDbContext>
          {

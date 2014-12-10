@@ -9,7 +9,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using WebApplicationNew.Models;
+
 
 namespace IdentitySample.Controllers
 {
@@ -142,6 +142,12 @@ namespace IdentitySample.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBag.country = from p in CultureInfo.GetCultures(CultureTypes.AllCultures & ~CultureTypes.NeutralCultures).OrderBy(c => c.Name)
+                              select new SelectListItem
+                              {
+                                  Text = p.EnglishName,
+                                  Value = p.DisplayName,
+                              }; 
             return View();
         }
 
@@ -154,7 +160,7 @@ namespace IdentitySample.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Username, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Username, Email = model.Email, Country=model.Country };
                 user.ProfileName = user.UserName;
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -169,6 +175,13 @@ namespace IdentitySample.Controllers
             }
 
             // If we got this far, something failed, redisplay form
+            ViewBag.country = from p in CultureInfo.GetCultures(CultureTypes.AllCultures & ~CultureTypes.NeutralCultures).OrderBy(c => c.Name)
+                              select new SelectListItem
+                              {
+                                  Text = p.EnglishName,
+                                  Value = p.DisplayName,
+                                  Selected = p.EnglishName == model.Country
+                              }; 
             return View(model);
         }
 
@@ -465,16 +478,67 @@ namespace IdentitySample.Controllers
         {
             ApplicationDbContext db = new ApplicationDbContext();
             ApplicationUser user = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
-            ViewBag.country = from p in CultureInfo.GetCultures(CultureTypes.AllCultures & ~CultureTypes.NeutralCultures).OrderBy(c => c.Name)
+
+            return View(user);
+        }
+
+
+        public async Task<ActionResult> Edit()
+        {
+            ApplicationDbContext db = new ApplicationDbContext();
+            ApplicationUser user = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+                        ViewBag.countries = from p in CultureInfo.GetCultures(CultureTypes.AllCultures & ~CultureTypes.NeutralCultures).OrderBy(c => c.Name)
                               select new SelectListItem
                               {
                                   Text = p.EnglishName,
                                   Value = p.DisplayName,
-                                  Selected = p.DisplayName == user.Country
+                                  Selected = user.Country == p.EnglishName
                               };
             return View(user);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(ApplicationUser editUser)
+        {
 
-        
+            if (ModelState.IsValid)
+            {
+                var user = await UserManager.FindByIdAsync(editUser.Id);
+                if (user == null)
+                {
+                    return HttpNotFound();
+                }
+
+                user.ProfileName = editUser.ProfileName;
+                user.Email = editUser.Email;
+                user.OldPassword = editUser.ConfirmPassword;
+                user.Country = editUser.Country;
+                user.Styles = editUser.Styles;
+                user.Description = editUser.Description;
+                user.Webpage = editUser.Webpage;
+                
+                var result = await UserManager.UpdateAsync(user);
+                if (!result.Succeeded)
+                {
+                    ModelState.AddModelError("", result.Errors.First());
+                    return View();
+                }
+                
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Something failed.");
+           
+              ViewBag.countries = from p in CultureInfo.GetCultures(CultureTypes.AllCultures & ~CultureTypes.NeutralCultures).OrderBy(c => c.Name)
+                              select new SelectListItem
+                              {
+                                  Text = p.EnglishName,
+                                  Value = p.DisplayName,
+                                  Selected = p.EnglishName == editUser.Country
+                              };
+
+
+            //if we go that far
+            return View(editUser);
+        }
     }
 }
