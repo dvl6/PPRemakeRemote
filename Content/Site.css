@@ -17,9 +17,7 @@ body {
 a {
     color: #333;
     outline: none;
-    padding-left: 3px;
-    padding-right: 3px;
-    text-decoration: underline;
+   text-decoration: underline;
 }
 
     a:link, a:visited,
@@ -278,7 +276,7 @@ fieldset {
     border-top: 1px solid grey;
     padding: 0;
     position:relative;
-    padding-top:10px;
+    padding:15px;
 }
 
 h1.register {
@@ -330,4 +328,16 @@ text-transform:uppercase;
     text-decoration:none;
     color:#fff;
     cursor:pointer;
+}
+
+.no-live{
+   width:128px;
+   height:160px;
+   
+}
+.no-live img{vertical-align:text-bottom;}
+.no-live:hover{
+    text-decoration:none;
+    color:#fff;
+   
 }

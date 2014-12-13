@@ -1,0 +1,44 @@
+﻿@model IdentitySample.Models.Stream
+@{
+    ViewBag.Title = "My Shows";
+}
+
+<h1>My Shows</h1>
+
+
+   <fieldset>
+       <div class="corner-top">Upcoming shows</div>
+        
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+
+
+            @*<legend>Registration Form</legend>*@
+            <div class="corner-top">Upcoming shows</div>
+            @*<table class="register-form">
+                <tr>
+                    <td> @Html.LabelFor(model => model.Title)</td>
+                    <td>@Html.DisplayFor(model => model.Frame)</td>
+                </tr>
+               
+                <tr>
+                    <td> @Html.LabelFor(model => model.Filename)</td>
+                    <td> @Html.DisplayFor(model => model.Title)</td>
+                   
+                </tr>
+               
+            </table>*@
+            @*@Html.ActionLink("<img src= \"@Url.Content('../Images/clipslist_ico_nolive.png')\" />", "MyShows", "Account")*@
+       @{if (ViewBag.userVideos == null)
+{
+     @Html.ActionImage("Add", "Account", null, @Url.Content("~/Content/Images/clipslist_ico_nolive.png"), "Add", "no-live")
+}
+}
+      
+      
+       
+
+
+    
+</fieldset>
+ 

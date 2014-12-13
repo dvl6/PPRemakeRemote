@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -38,23 +39,28 @@ namespace IdentitySample.Models
             [Display(Name = "IP Adress")]
             public string IPaddress { get; set; }
         }
-        public class MusicViewModel
+        public class Music
         {
             public int MusicId { get; set; }
             public string Genres { get; set; }
             public string Title { get; set; }
-            
+            public string Filename { get; set; }
+
             public virtual int UserId { get; set; }
             public virtual ApplicationUser User { get; set; }
         }
-        public class VideoViewModel
+        public class Stream
         {
+            [Key]
+            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
             public int VideoId { get; set; }
             public string Genres { get; set; }
             public string Title { get; set; }
             public string Description { get; set; }
-
-            public virtual int UserId { get; set; }
+            public string Filename { get; set; }
+            public DateTime StreamDate { get; set; }
+            public string Frame { get; set; }
+            public virtual Guid UserId { get; set; }
             public virtual ApplicationUser User { get; set; }
         }
         //public class Countries

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Security.Claims;
@@ -57,6 +58,9 @@ namespace IdentitySample.Models
         public String ConfirmPassword { get; set; }
         [Display(Name = "Old Password")]
         public String OldPassword { get; set; }
+
+        public virtual Guid UserId { get; set; }
+        public virtual ICollection<Stream> Shows { get; set; }
     }
 
 

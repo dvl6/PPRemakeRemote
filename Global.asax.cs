@@ -12,7 +12,7 @@ namespace IdentitySample
     {
         protected void Application_Start()
         {
-            Database.SetInitializer<MyDbContext>(new MyDbInitializer());
+            //Database.SetInitializer<MyDbContext>(new MyDbInitializer());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

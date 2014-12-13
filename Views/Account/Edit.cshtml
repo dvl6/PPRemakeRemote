@@ -12,7 +12,7 @@ else
     <h1>My Profile Edit</h1>
     <fieldset>
 
-        @using (Html.BeginForm("Edit", "Account", FormMethod.Post,new{@id="user-edit-form"}))
+        @using (Html.BeginForm("edit", "account", FormMethod.Post,new{@id="user-edit-form"}))
             {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary()

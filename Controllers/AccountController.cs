@@ -474,8 +474,9 @@ namespace IdentitySample.Controllers
         }
         #endregion
 
-        public ActionResult Index()
+        public ActionResult MyProfile()
         {
+            
             ApplicationDbContext db = new ApplicationDbContext();
             ApplicationUser user = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
 
@@ -483,7 +484,7 @@ namespace IdentitySample.Controllers
         }
 
 
-        public async Task<ActionResult> Edit()
+        public ActionResult Edit()
         {
             ApplicationDbContext db = new ApplicationDbContext();
             ApplicationUser user = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
@@ -496,6 +497,7 @@ namespace IdentitySample.Controllers
                               };
             return View(user);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit(ApplicationUser editUser)
@@ -524,7 +526,7 @@ namespace IdentitySample.Controllers
                     return View();
                 }
                 
-                return RedirectToAction("Index");
+                return RedirectToAction("myprofile");
             }
             ModelState.AddModelError("", "Something failed.");
            
@@ -539,6 +541,16 @@ namespace IdentitySample.Controllers
 
             //if we go that far
             return View(editUser);
+        }
+
+        public async Task<ActionResult> MyShows()
+        {
+            
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            MyDbContext db = new MyDbContext();
+            var userVideos = db.Shows.Where(u => u.UserId.ToString() == user.Id);
+            //if (userVideos==null) ViewBag.Message="No shows were streamed";
+            return View();
         }
     }
 }

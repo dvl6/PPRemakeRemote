@@ -5,10 +5,10 @@
 @if (Request.IsAuthenticated)
 {
     <ul class="login-profile-list">
-        <li>@Html.ActionLink("My Profile", "index", "account")</li>
+        <li>@Html.ActionLink("My Profile", "myprofile", User.Identity.Name)</li>
         <li>@Html.ActionLink("My Gallery", "Index")</li>
-        <li>@Html.ActionLink("My Messages", "Index")</li>
-        <li>@Html.ActionLink("My Shows", "Index")</li>
+        <li>@Html.ActionLink("My Messages", "messages", User.Identity.Name)</li>
+        <li>@Html.ActionLink("My Shows", "myshows",User.Identity.Name)</li>
         <li>@Html.ActionLink("My Music", "Index")</li>
         <li>@Html.ActionLink("My News", "Index")</li>
         <li>@Html.ActionLink("My Relationships", "Index")</li>
@@ -19,7 +19,7 @@ else
 {
 
     <section id="loginForm">
-        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "topLogin" }))
+        @using (Html.BeginForm("login", "account", FormMethod.Post, new { id = "topLogin" }))
         {
 
             @Html.AntiForgeryToken()
