@@ -552,5 +552,16 @@ namespace IdentitySample.Controllers
             //if (userVideos==null) ViewBag.Message="No shows were streamed";
             return View();
         }
+
+        public async Task<ActionResult> Messages()
+        {
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            MyDbContext db = new MyDbContext();
+           //var Inbox = db.Conversations.Where(u => u.RecipentId.ToString() == user.Id).ToList();
+            //var Inbox = db.Conversations.Select(u => u.RecipentId.ToString() == user.Id).ToList();
+            var Inbox = db.Conversations.ToList();
+           //int Count = Inbox.Count();
+            return View();
+        }
     }
 }

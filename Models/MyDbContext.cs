@@ -19,6 +19,8 @@ namespace IdentitySample.Models
         public DbSet<ApplicationUser> Users { get; set; }
         public DbSet<Music> Musics { get; set; }
         public DbSet<Stream> Shows { get; set; }
+        public DbSet<Conversations> Conversations { get; set; }
+        public DbSet<Messages> Messages { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

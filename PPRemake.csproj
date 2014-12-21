@@ -163,6 +163,7 @@
     <Content Include="Views\Account\MyProfile.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\MyShows.cshtml" />
+    <Content Include="Views\Account\Messages.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -264,10 +265,12 @@
       <DependentUpon>201412111313307_Frame.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\MyDbContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Messenger.cs" />
     <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Models\MyDbInitializer.cs" />
     <Compile Include="Models\ProfileModel.cs" />
