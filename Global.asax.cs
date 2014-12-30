@@ -12,6 +12,7 @@ namespace IdentitySample
     {
         protected void Application_Start()
         {
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<MyDbContext, Configuration>());
             //Database.SetInitializer<MyDbContext>(new MyDbInitializer());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

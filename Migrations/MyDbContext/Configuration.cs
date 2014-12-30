@@ -1,6 +1,5 @@
 namespace IdentitySample.Migrations.MyDbContext
 {
-    using IdentitySample.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -21,12 +20,12 @@ namespace IdentitySample.Migrations.MyDbContext
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
-            context.Conversations.AddOrUpdate(
-              p => p.ConversationId,
-
-              new Conversations { SenderId = new Guid("b358417c-dfae-49d5-ae85-1384519c1d8b"), RecipentId =  new Guid("5c39fd18-ce3a-45b9-82cb-5e07931f75a7"), Text="test text", Subject="The first message"  }
-
-            );
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
             //
         }
     }

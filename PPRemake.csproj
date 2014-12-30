@@ -164,6 +164,7 @@
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\MyShows.cshtml" />
     <Content Include="Views\Account\Messages.cshtml" />
+    <Content Include="Views\Account\NewMessage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -248,23 +249,36 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201412031458119_InitialCreate.cs" />
-    <Compile Include="Migrations\201412031458119_InitialCreate.Designer.cs">
+    <Compile Include="Migrations\ApplicationDbContext1\201412031458119_InitialCreate.cs" />
+    <Compile Include="Migrations\ApplicationDbContext1\201412031458119_InitialCreate.Designer.cs">
       <DependentUpon>201412031458119_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201412091217059_ProfileName.cs" />
-    <Compile Include="Migrations\201412091217059_ProfileName.Designer.cs">
+    <Compile Include="Migrations\ApplicationDbContext1\201412091217059_ProfileName.cs" />
+    <Compile Include="Migrations\ApplicationDbContext1\201412091217059_ProfileName.Designer.cs">
       <DependentUpon>201412091217059_ProfileName.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201412111006438_UserId.cs" />
-    <Compile Include="Migrations\201412111006438_UserId.Designer.cs">
+    <Compile Include="Migrations\ApplicationDbContext1\201412111006438_UserId.cs" />
+    <Compile Include="Migrations\ApplicationDbContext1\201412111006438_UserId.Designer.cs">
       <DependentUpon>201412111006438_UserId.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201412111313307_Frame.cs" />
-    <Compile Include="Migrations\201412111313307_Frame.Designer.cs">
+    <Compile Include="Migrations\ApplicationDbContext1\201412111313307_Frame.cs" />
+    <Compile Include="Migrations\ApplicationDbContext1\201412111313307_Frame.Designer.cs">
       <DependentUpon>201412111313307_Frame.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\ApplicationDbContext1\201412211629277_music.cs" />
+    <Compile Include="Migrations\ApplicationDbContext1\201412211629277_music.Designer.cs">
+      <DependentUpon>201412211629277_music.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\ApplicationDbContext1\Configuration.cs" />
+    <Compile Include="Migrations\ApplicationDbContext\Configuration.cs" />
+    <Compile Include="Migrations\MyDbContext\201412231204069_InitialCreate.cs" />
+    <Compile Include="Migrations\MyDbContext\201412231204069_InitialCreate.Designer.cs">
+      <DependentUpon>201412231204069_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\MyDbContext\201412301358237_Messages.cs" />
+    <Compile Include="Migrations\MyDbContext\201412301358237_Messages.Designer.cs">
+      <DependentUpon>201412301358237_Messages.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\MyDbContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -278,17 +292,26 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201412031458119_InitialCreate.resx">
+    <EmbeddedResource Include="Migrations\ApplicationDbContext1\201412031458119_InitialCreate.resx">
       <DependentUpon>201412031458119_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201412091217059_ProfileName.resx">
+    <EmbeddedResource Include="Migrations\ApplicationDbContext1\201412091217059_ProfileName.resx">
       <DependentUpon>201412091217059_ProfileName.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201412111006438_UserId.resx">
+    <EmbeddedResource Include="Migrations\ApplicationDbContext1\201412111006438_UserId.resx">
       <DependentUpon>201412111006438_UserId.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201412111313307_Frame.resx">
+    <EmbeddedResource Include="Migrations\ApplicationDbContext1\201412111313307_Frame.resx">
       <DependentUpon>201412111313307_Frame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\ApplicationDbContext1\201412211629277_music.resx">
+      <DependentUpon>201412211629277_music.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MyDbContext\201412231204069_InitialCreate.resx">
+      <DependentUpon>201412231204069_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MyDbContext\201412301358237_Messages.resx">
+      <DependentUpon>201412301358237_Messages.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

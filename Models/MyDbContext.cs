@@ -20,7 +20,7 @@ namespace IdentitySample.Models
         public DbSet<Music> Musics { get; set; }
         public DbSet<Stream> Shows { get; set; }
         public DbSet<Conversations> Conversations { get; set; }
-        public DbSet<Messages> Messages { get; set; }
+        public DbSet<Messages> Messages{ get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -38,6 +38,8 @@ namespace IdentitySample.Models
             modelBuilder.Entity<IdentityUserLogin>().HasKey<string>(l => l.UserId);
             modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
             modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
+            //modelBuilder.Entity<Messages>().HasKey(r => new { r.MessageId, r.ConversationId });
+            //modelBuilder.Entity<Conversations>().HasKey(r => new { r.ConversationId});
         }
         //public override void Seed(MyDbContext context)
         //{

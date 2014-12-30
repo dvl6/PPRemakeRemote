@@ -548,20 +548,76 @@ namespace IdentitySample.Controllers
             
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             MyDbContext db = new MyDbContext();
-            var userVideos = db.Shows.Where(u => u.UserId.ToString() == user.Id);
+            var userVideos = db.Shows.Where(u => u.UserId.ToString() == user.Id).ToList();
             //if (userVideos==null) ViewBag.Message="No shows were streamed";
             return View();
         }
 
+        //GET
         public async Task<ActionResult> Messages()
         {
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-            MyDbContext db = new MyDbContext();
+           var db = new MyDbContext();
+            
+               
+                 var Inbox = db.Conversations.Where(u => u.RecipentId.ToString() == user.Id).ToList();
+           var Count = Inbox.Count();
+           
+           
            //var Inbox = db.Conversations.Where(u => u.RecipentId.ToString() == user.Id).ToList();
             //var Inbox = db.Conversations.Select(u => u.RecipentId.ToString() == user.Id).ToList();
-            var Inbox = db.Conversations.ToList();
-           //int Count = Inbox.Count();
+
             return View();
+        }
+        
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Messages(Messages message)
+        {
+
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            var db = new MyDbContext();
+            var convMessages = db.Messages.Where(u=>u.ConversationId==message.ConversationId).ToList();
+            var newConversation = convMessages.Count()>1?true:false;
+             if(newConversation){
+                 db.Conversations.Add(new Conversations{ });
+             }
+            db.Messages.Add(message);
+            db.SaveChanges();
+            //db.Message
+            var Inbox = db.Conversations.Where(u => u.RecipentId.ToString() == user.Id).ToList();
+            var Count = Inbox.Count();
+
+
+            //var Inbox = db.Conversations.Where(u => u.RecipentId.ToString() == user.Id).ToList();
+            //var Inbox = db.Conversations.Select(u => u.RecipentId.ToString() == user.Id).ToList();
+            //If we get that far, we display object
+            return View(message);
+        }
+
+        public async Task<ActionResult> NewMessage()
+        {
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            var SenderId = user.Id;
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> NewMessage(Conversations conversation)
+        {
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            var SenderId = user.Id;
+            if (ModelState.IsValid)
+            {
+                var db = new MyDbContext();
+                db.Conversations.Add(conversation);
+
+                db.SaveChanges();
+            }
+            //get that far
+            ModelState.AddModelError("","error");
+            return View(conversation);
         }
     }
 }
