@@ -341,3 +341,17 @@ text-transform:uppercase;
     color:#fff;
    
 }
+.messages{
+height: 17px;
+padding: 0;
+margin: 0 0 0 0;
+float: right;
+list-style: none;
+}
+messages.li{
+    height: 17px;
+padding: 0;
+margin: 0 0 0 3px;
+list-style: none;
+border: none;
+}

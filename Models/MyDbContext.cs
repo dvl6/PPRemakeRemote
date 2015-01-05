@@ -21,6 +21,7 @@ namespace IdentitySample.Models
         public DbSet<Stream> Shows { get; set; }
         public DbSet<Conversations> Conversations { get; set; }
         public DbSet<Messages> Messages{ get; set; }
+        public DbSet<Participants> Participants { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

@@ -41,5 +41,27 @@ namespace IdentitySample.Models
         
         
         public virtual ICollection<Messages> Messages { get; set; }
+        public virtual ICollection<Participants> Participants { get; set; }
+    }
+    public class NewConversation
+    {
+        public Guid SenderId { get; set; }
+        public string UserNames { get; set; }
+        [Required]
+        [Display(Name = "Subject*")]
+        public string Subject { get; set; }
+        [Required]
+        [DataType(DataType.MultilineText)]
+        [Display(Name = "Message text*")]
+        public string Text { get; set; }
+
+    }
+    public class Participants
+    {
+        [Key]
+        public int ParticipantId { get; set; }
+        public Guid ConversationId { get; set; }
+
+        public virtual Conversations Conversation { get; set; }
     }
 }

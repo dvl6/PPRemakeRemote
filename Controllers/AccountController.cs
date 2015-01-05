@@ -558,7 +558,7 @@ namespace IdentitySample.Controllers
         {
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
            var db = new MyDbContext();
-            
+           
                
                  var Inbox = db.Conversations.Where(u => u.RecipentId.ToString() == user.Id).ToList();
            var Count = Inbox.Count();
@@ -599,25 +599,38 @@ namespace IdentitySample.Controllers
         public async Task<ActionResult> NewMessage()
         {
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-            var SenderId = user.Id;
-            return View();
+            
+
+            var model = new Conversations();
+            model.SenderId = new Guid(user.Id);
+            model.Date = DateTime.Now;
+            return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> NewMessage(Conversations conversation)
+        public async Task<ActionResult> NewMessage(NewConversation form)
         {
             var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
             var SenderId = user.Id;
             if (ModelState.IsValid)
             {
                 var db = new MyDbContext();
+                var conversation = new Conversations { SenderId = form.SenderId, Date = DateTime.Now };
                 db.Conversations.Add(conversation);
-
+                Guid CId = new Guid(conversation.ConversationId.ToString());
                 db.SaveChanges();
+                
+               foreach (var recipent in form.UserNames)
+               {
+                   
+                   db.Participants.Add(new Participants { ConversationId = CId, ParticipantId = new Guid(form.SenderId)});   
+                       
+               }
             }
-            //get that far
+            //Add-Migration -ConfigurationTypeName IdentitySample.Migrations.MyDbContext.Configuration Participants
+            // if we get that far
             ModelState.AddModelError("","error");
-            return View(conversation);
+            return View(form);
         }
     }
 }

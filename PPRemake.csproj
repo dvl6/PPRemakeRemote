@@ -279,6 +279,10 @@
     <Compile Include="Migrations\MyDbContext\201412301358237_Messages.Designer.cs">
       <DependentUpon>201412301358237_Messages.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\MyDbContext\201501042124021_Participants.cs" />
+    <Compile Include="Migrations\MyDbContext\201501042124021_Participants.Designer.cs">
+      <DependentUpon>201501042124021_Participants.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\MyDbContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -312,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\MyDbContext\201412301358237_Messages.resx">
       <DependentUpon>201412301358237_Messages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\MyDbContext\201501042124021_Participants.resx">
+      <DependentUpon>201501042124021_Participants.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

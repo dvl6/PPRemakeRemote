@@ -1,4 +1,4 @@
-﻿@model IdentitySample.Models.Conversations
+﻿@model IdentitySample.Models.NewConversation
 
 @{
     ViewBag.Title = "My Messages";
@@ -17,8 +17,12 @@
                <td>@Html.HiddenFor(model => model.RecipentId)</td>
            </tr>
            <tr>
-               <td> @Html.LabelFor(model => model.SenderId)</td>
-               <td>@Html.TextBoxFor(model => model.SenderId)</td>
+               <td> @Html.HiddenFor(model => model.SenderId)</td>
+               
+           </tr>
+           <tr>
+               <td> @Html.LabelFor(model => model.UserNames)</td>
+               <td>@Html.TextBoxFor(model => model.UserNames)</td>
            </tr>
            <tr>
                <td> @Html.LabelFor(model => model.Subject)</td>
@@ -26,7 +30,7 @@
            </tr>
            <tr>
                
-               <td>@Html.HiddenFor(model => model.SenderId, ViewBag.SenderId)</td>
+               <td>@Html.HiddenFor(model => model.SenderId)</td>
            </tr>
           
            
